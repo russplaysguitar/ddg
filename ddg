@@ -13,7 +13,7 @@ tmp_cfg_filename = ".tmp.lynx.cfg"
 query = URI.escape(ARGV.join(' '))
 search_uri = "http://duckduckgo.com?q=#{query}"
 
-# setup temprory config file for lynx
+# setup temporary config file for lynx
 # File.open(tmp_cfg_filename, 'w') do |file|
 #     # These lynx config opts prevent annoying prompts at the expense of security.
 #     # Use them at your own risk!
