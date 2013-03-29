@@ -3,6 +3,10 @@ ddg
 
 Opens Lynx and searches DuckDuckGo Lite for your keywords. Very basic.
 
+Requirements:  
+* ruby
+* lynx
+
 Examples:  
 ```
 $ ddg github
