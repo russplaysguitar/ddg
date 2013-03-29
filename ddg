@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+
+require 'uri'
+
+if ARGV.length == 0
+    puts "ddg - Opens Lynx and searches DuckDuckGo.com\nUsage: ddg [query]"
+    exit
+end
+
+browser_exec = "lynx"
+browser_opts = ""
+tmp_cfg_filename = ".tmp.lynx.cfg"
+query = URI.escape(ARGV.join(' '))
+search_uri = "http://duckduckgo.com?q=#{query}"
+
+# setup temprory config file for lynx
+# File.open(tmp_cfg_filename, 'w') do |file|
+#     # These lynx config opts prevent annoying prompts at the expense of security.
+#     # Use them at your own risk!
+#     # file << "FORCE_SSL_PROMPT:NO\n"
+#     # file << "FORCE_COOKIE_PROMPT:NO\n"
+# end
+# browser_opts += "-cfg #{tmp_cfg_filename}"
+
+# arrange commands
+browser_cmd = "#{browser_exec} #{search_uri} " + browser_opts
+cleanup_cmd = "rm -f #{tmp_cfg_filename}"
+
+# open browser and then run cleanup
+exec browser_cmd + " && " + cleanup_cmd
